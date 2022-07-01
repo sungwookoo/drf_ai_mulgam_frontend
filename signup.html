@@ -1,0 +1,39 @@
+﻿<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="height:605px">
+        <div class="modal-content" style="height:100%">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-family: Jua" id="signupModalLabel">Sign up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <main class="form-signin">
+                    <form>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Username" />
+                            <label for="floatingInput">Username</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email" />
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInputFullname" placeholder="Fullname" />
+                            <label for="floatingInput">Fullname</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="button" onclick="handleLogin()">
+                            Sign up
+                        </button>
+                        <p class="mt-5 mb-3 text-muted">© team 5 WCD </p>
+                    </form>
+                </main>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
