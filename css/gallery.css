@@ -1,45 +1,49 @@
-/**{*/
-/*    border: 1px solid red;*/
-/*}*/
+/* * {
+    border: 1px solid red;
+} */
 
 
 /*메뉴*/
-.menu{
+.menu {
     display: flex;
     margin: 80px 0 30px 100px;
     font-family: 'DM Sans', sans-serif;
     font-size: 22px;
 }
 
-.intro{
+.intro {
     margin-left: 15px;
 }
-.intro:hover{
+
+.intro:hover {
     cursor: pointer;
 }
 
-.gallery1{
+.gallery1 {
     margin-left: 15px;
 }
-.gallery1:hover{
+
+.gallery1:hover {
     cursor: pointer;
 }
 
-.gallery2{
+.gallery2 {
     margin-left: 15px;
 }
-.gallery2:hover{
+
+.gallery2:hover {
     cursor: pointer;
 }
 
-.mypage{
+.mypage {
     margin-left: 15px;
 }
-.mypage:hover{
+
+.mypage:hover {
     cursor: pointer;
 }
 
-.edit{
+.edit {
     margin: 0 0 60px 110px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
@@ -47,36 +51,34 @@
 
 /*갤러리*/
 
-.main_container{
+.main_container {
     width: 85%;
     margin: auto;
 }
 
-.main_box{
+.main_box {}
 
-}
-
-.floor{
+.floor {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 3rem;
     justify-content: center;
 }
 
-.feed_box{
+.feed_box {
     text-align: center;
 }
 
 
-.feed{
+.feed {}
 
-}
-.feed:hover{
+.feed:hover {
     cursor: pointer;
 }
 
 
-.feed_title{
+.feed_title {
+    margin-top: 5px;
     text-align: left;
     font-family: 'Noto Serif KR', serif;
     font-size: 15px;
@@ -89,29 +91,116 @@
     text-overflow: ellipsis;
 }
 
-.button_box{
+.button_box {
     width: 300px;
     text-align: left;
     margin: auto;
-    margin-top: 3px;
 }
 
-.put_button{
+.put_button {
     border: none;
     color: white;
     background-color: darkcyan;
     border-radius: 3px;
+    width: 32px;
+    height: 17.5px;
+    font-size: 10px;
 }
 
-.delete_button{
+.delete_button {
     border: none;
     color: white;
     background-color: darkred;
     border-radius: 3px;
+    width: 44px;
+    height: 17.5px;
+    font-size: 10px;
 }
 
 /*고정 모달 아이콘*/
 .float {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    border: 3px solid #f8e6e0;
+    color: #6e6e6e;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+
+
+.img_dicription {
+
+    object-fit: cover;
+}
+
+.file_choice1 {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    top: 290px;
+    left: 15px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.file_choice2 {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    top: 290px;
+    left: 565px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.g2modal {
+    display: flex;
+
+}
+
+.img_read1 {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    top: 290px;
+    left: 15px;
+    object-fit: cover;
+    border: 1px solid black;
+
+}
+
+.img_read2 {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    top: 290px;
+    left: 565px;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+.img_read3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 290px;
+    left: 365px;
+    object-fit: cover;
+
+}
+
+/* put 모달 */
+.float_put {
     position: fixed;
     width: 50px;
     height: 50px;
@@ -124,71 +213,81 @@
     box-shadow: 2px 2px 3px #999;
 }
 
+.put-modal {}
 
-.float {
-    position: fixed;
-    width: 60px;
+.put-img {
+    width: 500px;
+    margin: auto;
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.put-input-box {
+    width: 500px;
+    margin: auto;
+}
+
+.put-input {
+    width: 500px;
+}
+
+.put-btn {
+    border: none;
+    color: white;
+    background-color: palevioletred;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 50px;
+    height: 25px;
+}
+
+.btn-secondary {
+    border: none;
+    color: white;
+    background-color: grey;
+    border-radius: 3px;
+    font-size: 10px;
+    width: 50px;
+    height: 25px;
+}
+
+
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    width: 120px;
     height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #00B4CC;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow: 2px 2px 3px #999;
-}
-.img_dicription {
-   
-    object-fit: cover;
-}
-.file_choice1 {
-    position: absolute;
-    width: 350px;
-    height: 200px;
-    top: 300px;
-    left: 15px;
-    opacity: 0;
-    z-index: 1;
-}
-.file_choice2 {
-    position: absolute;
-    width: 350px;
-    height: 200px;
-    top: 300px;
-    left: 565px;
-    opacity: 0;
-    z-index: 1;
+    margin-left: 15px;
 }
 
-.g2modal {
-    display: flex;
-
+.w-btn-gray-outline {
+    border: 3px solid #a3a1a1;
+    color: #6e6e6e;
 }
-.img_read1{
-    position: absolute;
-    width: 350px;
-    height: 200px;
-    top: 300px;
-    left: 15px;
-    object-fit: cover;
-    border: 1px solid black;
 
+.w-btn-gray-outline:hover {
+    background-color: #a3a1a1;
+    color: #e3dede;
 }
-.img_read2{
-    position: absolute;
-    width: 350px;
-    height: 200px;
-    top: 300px;
-    left: 565px;
-    object-fit: cover;
-    border: 1px solid black;
-}
-.img_read3{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    top: 300px;
-    left: 365px;
-    object-fit: cover;
 
+.w-btn-blue-outline {
+    border: 3px solid #6aafe6;
+    color: #6e6e6e;
+}
+
+.w-btn-blue-outline:hover {
+    background-color: #6aafe6;
+    color: #d4dfe6;
+}
+
+.w-btn-outline:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
 }
