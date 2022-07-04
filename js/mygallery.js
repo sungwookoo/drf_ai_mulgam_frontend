@@ -1,5 +1,6 @@
 $(document).ready(function () {
     get_mygallery();
+    console.log(1)
 })
 
 function get_mygallery() {
@@ -10,6 +11,7 @@ function get_mygallery() {
         success: function (response) {
             for (let i = 0; i < response.length; i++){
                 let title = response[i]['title']
+                console.log(2)
                 let img_url = response[i]['img_url']
                 let article_id = response[i]['id']
                 let temp_myg = `<div class="feed_box">
