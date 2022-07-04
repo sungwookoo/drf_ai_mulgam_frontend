@@ -113,7 +113,7 @@
         </div>
     </div>
     <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-        명작 추가
+        작품 게시
     </button>
     <!--모달-->
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,7 +124,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <img src="그림7.png" class="img_dicription">
+                        <img src="img/그림7.png" class="img_dicription">
                     </div>
                     <hr>
                     <div class="file_upload">
@@ -132,11 +132,11 @@
                         <br>
                         <input class="file_choice1" type="file" id="file1" name="file1"
                             accept="image/jpeg, image/jpg, image/png" multiple>
-                        <img class="img_read1" src="그림5.png" id="img_section">
-                        <img class="img_read3" src="그림4.png" id="img_section">
+                        <img class="img_read1" src="img/그림5.png" id="img_section1">
+                        <img class="img_read3" src="img/그림4.png" id="img_section">
                         <input class="file_choice2" type="file" id="file2" name="file2"
                             accept="image/jpeg, image/jpg, image/png" multiple>
-                        <img class="img_read2" src="그림6.png" id="img_section">
+                        <img class="img_read2" src="img/그림6.png" id="img_section2">
 
 
 
@@ -144,19 +144,53 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="post_gallery2()">제출</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="w-btn-outline w-btn-blue-outline" data-bs-dismiss="modal"
+                        onclick="post_gallery2()">제출</button>
+                    <button type="button" class="w-btn-outline w-btn-gray-outline"
+                        data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
+    <div id="editmodal1">
 
+    </div>
 
     <!--테스트-->
 
     <!--테스트-->
 
+    <script>
+        const reader = new FileReader();
 
+        reader.onload = (readerEvent) => {
+            document.querySelector("#img_section1").setAttribute("src", readerEvent.target.result);
+            //파일을 읽는 이벤트가 발생하면 img_section의 src 속성을 readerEvent의 결과물로 대체함
+        };
+
+        document.querySelector("#file1").addEventListener("change", (changeEvent) => {
+            //upload_file 에 이벤트리스너를 장착
+
+            const imgFile = changeEvent.target.files[0];
+            reader.readAsDataURL(imgFile);
+            //업로드한 이미지의 URL을 reader에 등록
+        })
+
+        const reader1 = new FileReader();
+
+        reader1.onload = (readerEvent) => {
+            document.querySelector("#img_section2").setAttribute("src", readerEvent.target.result);
+            //파일을 읽는 이벤트가 발생하면 img_section의 src 속성을 readerEvent의 결과물로 대체함
+        };
+
+        document.querySelector("#file2").addEventListener("change", (changeEvent) => {
+            //upload_file 에 이벤트리스너를 장착
+
+            const imgFile = changeEvent.target.files[0];
+            reader1.readAsDataURL(imgFile);
+            //업로드한 이미지의 URL을 reader에 등록
+        })
+    </script>
 </body>
 
 </html>

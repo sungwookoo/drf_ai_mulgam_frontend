@@ -1,6 +1,6 @@
 $(document).ready(function () {
     get_mygallery();
-    console.log(1)
+
 })
 
 function get_mygallery() {
@@ -9,7 +9,7 @@ function get_mygallery() {
         url: "http://127.0.0.1:8000/article/mygallery/",
         data: {},
         success: function (response) {
-            for (let i = 0; i < response.length; i++){
+            for (let i = 0; i < response.length; i++) {
                 let title = response[i]['title']
                 console.log(2)
                 let img_url = response[i]['img_url']
@@ -22,18 +22,19 @@ function get_mygallery() {
                 </div>
             </div>`
                 $('#mygallery_painting').append(temp_myg);
-        }}
+            }
+        }
     })
 }
 
 function delete_mygallery(article_id) {
     $.ajax({
         type: "DELETE",
-        url: "http://127.0.0.1:8000/article/mygallery/"+article_id,
+        url: "http://127.0.0.1:8000/article/mygallery/" + article_id,
         data: {},
         success: function (response) {
             alert('삭제 완료')
-            window.location.href = '/'
-            }
+            window.location.reload();
+        }
     })
 }
