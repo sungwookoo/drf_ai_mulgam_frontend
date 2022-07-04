@@ -57,6 +57,13 @@ function post_gallery2() {
     let title = $('#title').val()
     let file1 = $('#file1')[0].files[0]
     let file2 = $('#file2')[0].files[0]
+
+    // &&, || 
+    if (file1 == undefined || file2 == undefined) {
+        alert("파일을 두개 모두 선택해야합니다.");
+        return false;
+    }
+
     let form_data = new FormData()
 
     form_data.append("title", title)

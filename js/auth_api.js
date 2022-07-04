@@ -1,12 +1,28 @@
-﻿const backend_base_url = "http://127.0.0.1:8000"
+﻿// const backend_base_url = "http://3.34.48.116:8000/"
+const backend_base_url = "http://127.0.0.1:8000"
+
 const frontend_base_url = "http://127.0.0.1:5500"
+
+$(document).ready(function () {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    if (payload == null) {
+        $('#a_logout').hide();
+    }
+    else {
+        $('#a_login').hide();
+        $('#a_signup').hide();
+        $('#a_logout').show();
+    }
+});
+
 
 window.onload = () => {
     const payload = JSON.parse(localStorage.getItem("payload"));
 
     // 아직 access 토큰의 인가 유효시간이 남은 경우
     if (payload.exp > (Date.now() / 1000)) {
-        console.log(payload.exp)
+        // $('#a_login').hide()
+        // $('#a_signup').hide()
     } else {
         // 인증 시간이 지났기 때문에 다시 refreshToken으로 다시 요청을 해야 한다.
         const requestRefreshToken = async (url) => {
@@ -108,6 +124,8 @@ async function handleLogin() {
         }).join(''));
 
         localStorage.setItem("payload", jsonPayload);
+
+        location.reload();
         // window.location.replace(`${frontend_base_url}/`);
     } else {
         alert(response.status)
@@ -136,6 +154,9 @@ async function handleLogout() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         alert("로그아웃 되었습니다.")
+
+        location.reload();
+        // window.location.replace(`${frontend_base_url}/`);
         // changeNavAuth();
     } else {
         alert(response.status)

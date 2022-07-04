@@ -20,16 +20,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <title>Mulgam</title>
     <script src="js/gallery2.js"> </script>
+    <script src="/js/nav.js"></script>
+    <script src="/js/auth_api.js"></script>
+    <script src="/js/common.js"></script>
+    <link rel="stylesheet" href="/css/auth.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
 </head>
 
 <body>
-    <!-- menu -->
-    <div class="menu">
-        <div class="intro"> Introduce</div>
-        <div class="gallery1"> Gallery1</div>
-        <div class="gallery2"> Gallery2</div>
-        <div class="mypage"> Mypage</div>
-    </div>
+    <header>
+        <nav id="navigationBar">
+            <ul>
+                <li>
+                    <a href="/home.html" class="link">About</a>
+                </li>
+                <li>
+                    <a href="/gallery1.html" class="link">Gallery 1</a>
+                </li>
+                <li>
+                    <a href="/gallery2.html" class="link">Gallery 2</a>
+                </li>
+                <li>
+                    <a data-bs-toggle="modal" data-bs-target="#whyclickModal">
+                        Click Me
+                    </a>
+                </li>
+                <li>
+                    <a id="a_logout" style="float:right;margin-right:15px;" onclick="handleLogout()">
+                        Logout
+                    </a>
+                </li>
+                <li>
+                    <a id="a_signup" style="float:right; margin-right: 15px;" class="nav-signup" data-bs-toggle="modal"
+                        data-bs-target="#signupModal">
+                        Sign up
+                    </a>
+                </li>
+                <li>
+                    <a id="a_login" style="float:right" class="nav-signin" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- modal body-->
+        <div id="include_login"></div>
+        <div id="include_signup"></div>
+        <div id="whyclick" style="text-align: center;">
+            <img class="" style="width: 500px;" src="https://picsum.photos/500">
+        </div>
+        <!-- /modal body-->
+    </header>
 
     <!-- editor -->
     <div class="edit">
