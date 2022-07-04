@@ -1,0 +1,128 @@
+/**{*/
+/*    border: 1px solid red;*/
+/*}*/
+
+
+/*메뉴*/
+.menu{
+    display: flex;
+    margin: 80px 0 30px 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+}
+
+.intro{
+    margin-left: 15px;
+}
+.intro:hover{
+    cursor: pointer;
+}
+
+.gallery1{
+    margin-left: 15px;
+}
+.gallery1:hover{
+    cursor: pointer;
+}
+
+.gallery2{
+    margin-left: 15px;
+}
+.gallery2:hover{
+    cursor: pointer;
+}
+
+.mypage{
+    margin-left: 15px;
+}
+.mypage:hover{
+    cursor: pointer;
+}
+
+.edit{
+    margin: 0 0 60px 110px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+}
+
+/*갤러리*/
+
+.main_container{
+    width: 85%;
+    margin: auto;
+}
+
+.main_box{
+
+}
+
+.floor{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+    justify-content: center;
+}
+
+.feed_box{
+    text-align: center;
+}
+
+
+.feed{
+
+}
+.feed:hover{
+    cursor: pointer;
+}
+
+
+.feed_title{
+    text-align: left;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    color: grey;
+
+    display: inline-block;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button_box{
+    width: 300px;
+    text-align: left;
+    margin: auto;
+    margin-top: 3px;
+}
+
+.put_button{
+    border: none;
+    color: white;
+    background-color: darkcyan;
+    border-radius: 3px;
+}
+
+.delete_button{
+    border: none;
+    color: white;
+    background-color: darkred;
+    border-radius: 3px;
+}
+
+/*고정 모달 아이콘*/
+.float {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 40px;
+    background-color: lightpink;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+
+
