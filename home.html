@@ -16,11 +16,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/auth.css" />
     <link rel="stylesheet" href="/css/nav.css" />
+    <!-- <link rel="stylesheet" href="/css/intro.css" /> -->
+
     <script src="/js/nav.js"></script>
-    <script src="/js/api.js"></script>
+    <script src="/js/auth_api.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/js/intro.js"></script>
     <script>
     </script>
 </head>
@@ -28,13 +32,13 @@
     <nav id="navigationBar">
         <ul>
             <li>
-                <a href="javascript:void(0)" class="link">About</a>
+                <a href="/home.html" class="link">About</a>
             </li>
             <li>
-                <a href="javascript:void(0)" class="link">Gallery 1</a>
+                <a href="/gallery1.html" class="link">Gallery 1</a>
             </li>
             <li>
-                <a href="javascript:void(0)" class="link">Gallery 2</a>
+                <a href="/gallery2.html" class="link">Gallery 2</a>
             </li>
             <li>
                 <a data-bs-toggle="modal" data-bs-target="#whyclickModal">
@@ -70,7 +74,8 @@
 </header>
 
 <body>
-
+    <div id="include_intro">
+    </div>
 </body>
 
 </html>
