@@ -1,112 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous">
-    </script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-    
+
     <meta charset="UTF-8">
-    <link href="css/gallery.css" rel="stylesheet" type="text/css"/>
+    <link href="css/gallery.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <title>Mulgam</title>
-    <script src="mygallery.js"> </script>
+    <script src="js/mygallery.js"></script>
 </head>
 
 <body>
-<!-- menu -->
-<div class="menu">
-    <div class="intro"> Introduce</div>
-    <div class="gallery1"> Gallery1</div>
-    <div class="gallery2"> Gallery2</div>
-    <div class="mypage"> Mypage</div>
-</div>
+    <!-- menu -->
+    <div class="menu">
+        <div class="intro"> Introduce</div>
+        <div class="gallery1"> Gallery1</div>
+        <div class="gallery2"> Gallery2</div>
+        <div class="mypage"> Mypage</div>
+    </div>
 
-<!-- editor -->
-<div class="edit">
-    <div class="editor"> Edited by: </div>
-    <div class="editor"> WCDW </div>
-</div>
+    <!-- editor -->
+    <div class="edit">
+        <div class="editor"> Edited by: </div>
+        <div class="editor"> WCDW </div>
+    </div>
 
-<!-- gallery1_main -->
-<div class="main_container">
-    <div class="main_box">
-        <div id="mygallery_painting" class="floor">
+    <!-- gallery1_main -->
+    <div class="main_container">
+        <div class="main_box">
+            <div id="mygallery_painting" class="floor">
 
-<!--자바스크립트-->
-            <div class="feed_box">
-                <a><div class="feed"><img src="${img_url}" width="300" height="300"></div></a>
-                <div class="feed_title">${title}</div>
-                <div class="button_box">
-                    <a><button class="put_button">edit</button></a>
-                    <a><button class="delete_button">delete</button></a>
+                <!--자바스크립트-->
+                <div class="feed_box">
+                    <a>
+                        <div class="feed"><img src="${img_url}" width="300" height="300"></div>
+                    </a>
+                    <div class="feed_title">${title}</div>
+                    <div class="button_box">
+                        <a><button class="put_button">edit</button></a>
+                        <a><button class="delete_button">delete</button></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="feed_box">
-                <div class="feed"><img src="https://freight.cargo.site/w/200/q/94/i/0000080x0160be4.fc56833ab6f09db2189fd684525b4f1748e061a03b0bbc1c23e22ec265d8358d/prt_1305406940.jpg" width="300" height="300"></div>
-                <div class="feed_title">hello world</div>
-                <div class="button_box">
-                    <a><button class="put_button">edit</button></a>
-                    <a><button class="delete_button">delete</button></a>
+                <div class="feed_box">
+                    <div class="feed"><img
+                            src="https://freight.cargo.site/w/200/q/94/i/0000080x0160be4.fc56833ab6f09db2189fd684525b4f1748e061a03b0bbc1c23e22ec265d8358d/prt_1305406940.jpg"
+                            width="300" height="300"></div>
+                    <div class="feed_title">hello world</div>
+                    <div class="button_box">
+                        <a><button class="put_button">edit</button></a>
+                        <a><button class="delete_button">delete</button></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="feed_box">
-                <div class="feed"><img src="https://freight.cargo.site/w/200/q/94/i/0000080x055e85f.e55ea29eac4ca7c46a4c7cc32ba419e4f0a4f0e8c620f5ed7f9cc8db52ff8469/prt_1368733199.jpg" width="300" height="300"></div>
-                <div class="feed_title">lego gogh</div>
-                <div class="button_box">
-                    <a><button class="put_button">edit</button></a>
-                    <a><button class="delete_button">delete</button></a>
+                <div class="feed_box">
+                    <div class="feed"><img
+                            src="https://freight.cargo.site/w/200/q/94/i/0000080x055e85f.e55ea29eac4ca7c46a4c7cc32ba419e4f0a4f0e8c620f5ed7f9cc8db52ff8469/prt_1368733199.jpg"
+                            width="300" height="300"></div>
+                    <div class="feed_title">lego gogh</div>
+                    <div class="button_box">
+                        <a><button class="put_button">edit</button></a>
+                        <a><button class="delete_button">delete</button></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="feed_box">
-                <div class="feed"><img src="https://freight.cargo.site/w/200/q/94/i/0000080x0537ca6.5f11d90d4c26e98133b79579584046a6eac5d4a20888fac977fdd584792c0d62/prt_1366823467.jpg" width="300" height="300"></div>
-                <div class="feed_title">lego gogh</div>
-                <div class="button_box">
-                    <a><button class="put_button">edit</button></a>
-                    <a><button class="delete_button">delete</button></a>
+                <div class="feed_box">
+                    <div class="feed"><img
+                            src="https://freight.cargo.site/w/200/q/94/i/0000080x0537ca6.5f11d90d4c26e98133b79579584046a6eac5d4a20888fac977fdd584792c0d62/prt_1366823467.jpg"
+                            width="300" height="300"></div>
+                    <div class="feed_title">lego gogh</div>
+                    <div class="button_box">
+                        <a><button class="put_button">edit</button></a>
+                        <a><button class="delete_button">delete</button></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="feed_box">
-                <div class="feed"><img src="https://freight.cargo.site/w/200/q/94/i/0000080x053793b.a5e6265b2ec5bf4116839f8496d6a02be9dda6dd2e3f5ae1c8950a96dbb4720a/prt_1366746089.jpg" width="300" height="300"></div>
-                <div class="feed_title">lego gogh</div>
-                <div class="button_box">
-                    <a><button class="put_button">edit</button></a>
-                    <a><button class="delete_button">delete</button></a>
+                <div class="feed_box">
+                    <div class="feed"><img
+                            src="https://freight.cargo.site/w/200/q/94/i/0000080x053793b.a5e6265b2ec5bf4116839f8496d6a02be9dda6dd2e3f5ae1c8950a96dbb4720a/prt_1366746089.jpg"
+                            width="300" height="300"></div>
+                    <div class="feed_title">lego gogh</div>
+                    <div class="button_box">
+                        <a><button class="put_button">edit</button></a>
+                        <a><button class="delete_button">delete</button></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="feed_box">
-                <div class="feed"><img src="https://freight.cargo.site/w/200/q/94/i/0000080x067f140.f58dcf2bb27b6e9eb0bc20035728e6c42fe21527890495b81c0d391becab4959/prt_1385407792.jpg" width="300" height="300"></div>
-                <div class="feed_title">lego gogh</div>
-                <div class="button_box">
-                    <a><button class="put_button">edit</button></a>
-                    <a><button class="delete_button">delete</button></a>
+                <div class="feed_box">
+                    <div class="feed"><img
+                            src="https://freight.cargo.site/w/200/q/94/i/0000080x067f140.f58dcf2bb27b6e9eb0bc20035728e6c42fe21527890495b81c0d391becab4959/prt_1385407792.jpg"
+                            width="300" height="300"></div>
+                    <div class="feed_title">lego gogh</div>
+                    <div class="button_box">
+                        <a><button class="put_button">edit</button></a>
+                        <a><button class="delete_button">delete</button></a>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 
-<!--모달-->
+    <!--모달-->
 
 
-<!--테스트-->
+    <!--테스트-->
 
-<!--테스트-->
+    <!--테스트-->
 
 
 </body>
+
 </html>
