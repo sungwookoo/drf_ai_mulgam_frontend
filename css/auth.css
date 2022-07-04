@@ -1,38 +1,25 @@
-﻿html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
-.form-signin, .form-login {
+﻿.form-signup, .form-login {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
 }
 
-.form-signin .checkbox {
+.form-signup .checkbox {
   font-weight: 400;
 }
 
-.form-signin .form-floating:focus-within {
+.form-signup .form-floating:focus-within {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signup input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-signup input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -44,4 +31,27 @@ body {
 
 .signup-text {
   margin-top: 100px;
+}
+
+.login-signup {
+  text-decoration: none;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.form-login > form > a:hover {
+  font-weight: bold;
+}
+
+.new-mulgam {
+  font-size: 12px;
+  padding: 16px 16px;
+  text-align: center;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 6px;
+}
+
+.text-muted {
+  font-size: 12px;
+  text-align: center;
 }
