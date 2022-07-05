@@ -19,7 +19,10 @@ function get_gallery2() {
                 let user = response[i]['user']
                 let article_id = response[i]['id']
                 console.log(user)
-                let temp_g2 = `<div class="feed_box">
+                let temp_g2;
+                if (localStorage.getItem("payload") != null) {
+                    if ((user_id == user)) {
+                        temp_g2 = `<div class="feed_box">
                 <div class="feed">
                     <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
                         <img src="${img_url}"
@@ -27,17 +30,37 @@ function get_gallery2() {
                     </a>
                 </div>
                 <div class="feed_title">${title}</div>
-                <div class="button_box" id="button_boxs${i}></div>
-                </div>`
-                $('#gallery2_painting').append(temp_g2);
-                let temp_button = `<a><button data-bs-toggle="modal" data-bs-target="#edits${i}"
+                <div class="button_box"><a><button data-bs-toggle="modal" data-bs-target="#edits${i}"
                 class="put_button">edit</button></a>
-        <a><button class="delete_button" onclick="delete_gallery2(${article_id})">delete</button></a>`
-                if (localStorage.getItem("payload") != null) {
-                    if ((user_id == user)) {
-                        $('#button_box' + i).append(temp_button);
-                    }
+        <a><button class="delete_button" onclick="delete_gallery2(${article_id})">delete</button></a></div>
+                </div > `} else {
+                        temp_g2 = `<div class="feed_box">
+                <div class="feed">
+                    <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                        <img src="${img_url}"
+                            width="300" height="300" onclick="get_comment(${article_id},'${img_url}','${title}')">
+                    </a>
+                </div>
+                <div class="feed_title">${title}</div>
+                <div class="button_box"></div>
+                </div>`}
+
+                } else {
+                    temp_g2 = `<div class="feed_box">
+                    <div class="feed">
+                        <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                            <img src="${img_url}"
+                                width="300" height="300" onclick="get_comment(${article_id},'${img_url}','${title}')">
+                        </a>
+                    </div>
+                    <div class="feed_title">${title}</div>
+                    <div class="button_box"></div>
+                    </div>`
+
                 }
+                $('#gallery2_painting').append(temp_g2);
+
+
 
                 let modal_g2 = `<div class="modal fade" id="edits${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
@@ -60,15 +83,16 @@ function get_gallery2() {
                     </div>
                 </div>
             </div>`
-                $('#editmodal1').append(modal_g2);
+                $('#editsmodal').append(modal_g2);
+
             }
         }
-    })
+    }
+    )
 }
 
 function post_gallery2() {
-    const payload = JSON.parse(localStorage.getItem("payload"));
-    let user_id = payload.user_id;
+    let token = localStorage.getItem("token");
     let title = $('#title').val()
     let file1 = $('#file1')[0].files[0]
     let file2 = $('#file2')[0].files[0]
@@ -84,7 +108,6 @@ function post_gallery2() {
     form_data.append("file1", file1)
     form_data.append("file2", file2)
     form_data.append("file2", file2)
-    form_data.append("user", user_id)
 
     $.ajax({
         type: "POST",
@@ -93,6 +116,12 @@ function post_gallery2() {
         cache: false,
         contentType: false,
         processData: false,
+        // beforeSend: function (xhr) {
+        //     xhr.setRequestHeader("Authorization", "Bearer " + token);
+        // },
+        headers: {
+            "Authorization": "Bearer " + token
+        },
         error: function () {
             alert("error")
             window.location.reload();
