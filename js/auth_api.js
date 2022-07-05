@@ -1,6 +1,7 @@
-﻿// backend_base_url = "http://3.34.48.116:8000"
-backend_base_url = "http://127.0.0.1:8000"
-frontend_base_url = "http://127.0.0.1:5500"
+﻿backend_base_url = "http://13.209.41.201/"
+frontend_base_url = "https://mulgam.netlify.app/"
+// backend_base_url = "http://127.0.0.1:8000"
+
 
 $(document).ready(function () {
 });
