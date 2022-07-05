@@ -19,7 +19,6 @@ function get_mygallery() {
           },
         data: {},
         success: function (response) {
-            console.log(response)
             for (let i = 0; i < response.length; i++) {
                 let title = response[i]['title']
                 let img_url = response[i]['img_url']
