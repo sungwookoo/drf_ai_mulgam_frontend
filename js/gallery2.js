@@ -92,7 +92,8 @@ function get_gallery2() {
 }
 
 function post_gallery2() {
-    let token = localStorage.getItem("token");
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    let user_id = payload.user_id;
     let title = $('#title').val()
     let file1 = $('#file1')[0].files[0]
     let file2 = $('#file2')[0].files[0]
@@ -101,13 +102,18 @@ function post_gallery2() {
         alert("파일을 두개 모두 선택해야합니다.");
         return false;
     }
+    if (title == "") {
+        alert("제목을 적어야합니다.");
+        return false;
+    }
 
     let form_data = new FormData()
 
     form_data.append("title", title)
     form_data.append("file1", file1)
     form_data.append("file2", file2)
-    form_data.append("file2", file2)
+    form_data.append("user", user_id)
+
 
     $.ajax({
         type: "POST",
@@ -116,10 +122,6 @@ function post_gallery2() {
         cache: false,
         contentType: false,
         processData: false,
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.setRequestHeader("Authorization", "Bearer " + token);
-        },
         error: function () {
             alert("error")
             window.location.reload();
