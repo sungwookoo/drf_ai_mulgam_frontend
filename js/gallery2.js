@@ -102,6 +102,10 @@ function post_gallery2() {
         alert("파일을 두개 모두 선택해야합니다.");
         return false;
     }
+    if (title == "") {
+        alert("제목을 적어야합니다.");
+        return false;
+    }
 
     let form_data = new FormData()
 
