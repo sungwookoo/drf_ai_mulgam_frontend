@@ -90,6 +90,8 @@ function get_gallery1() {
 }
 
 function post_gallery1() {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    let user_id = payload.user_id;
     let title = $('#title').val()
     let num = $('#num').val()
     let file = $('#file')[0].files[0]
@@ -98,7 +100,8 @@ function post_gallery1() {
     form_data.append("title", title)
     form_data.append("num", num)
     form_data.append("file", file)
-
+    form_data.append("user", user_id)
+    
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:8000/article/gallery1/",
