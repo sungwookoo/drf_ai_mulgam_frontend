@@ -22,13 +22,14 @@ function get_gallery1() {
                 let article_id = response[i]['id']
                 console.log(article_id)
                 let temp_g1 = `<div class="feed_box">
-                <a>
-                    <div class="feed"><img src="${img_url}" width="300" height="300" onclick="get_comment(${article_id},${img_url},${title})"></div>
-                </a>
-                <div class="feed_title">${title}</div>
-                <div class="button_box" id="button_boxs${i}>
-                    
+                <div class="feed">
+                    <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                        <img src="${img_url}"
+                            width="300" height="300" onclick="get_comment(${article_id},'${img_url}','${title}')">
+                    </a>
                 </div>
+                <div class="feed_title">${title}</div>
+                <div class="button_box" id="button_boxs${i}></div>
                 </div>`
                 $('#gallery1_painting').append(temp_g1);
                 let temp_button = `<a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
