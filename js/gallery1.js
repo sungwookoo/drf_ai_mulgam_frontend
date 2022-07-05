@@ -27,7 +27,7 @@ function get_gallery1() {
                 </div>
                 </div>`
                 $('#gallery1_painting').append(temp_g1);
-                
+
 
                 let modal_g1 = `<div class="modal fade" id="edit${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
@@ -73,26 +73,27 @@ function post_gallery1() {
         cache: false,
         contentType: false,
         processData: false,
-        success: function (response) {
-            alert(response["result"])
-            if (response["result"] == '업로드 완료!') {
-                window.location.href = '/'
-            } else {
-                window.location.href = '/'
-            }
+        error: function () {
+            alert("작품이 게시되었습니다.")
+            window.location.reload();
+        },
+        success: function () {
+            alert("작품이 게시되었습니다.")
+            window.location.reload();
         }
+
     });
 }
 
-function put_gallery1(article_id,i) {
-    let title = $('#edittitle'+i).val()
+function put_gallery1(article_id, i) {
+    let title = $('#edittitle' + i).val()
     $.ajax({
         type: "PUT",
         url: "http://127.0.0.1:8000/article/gallery1/" + article_id,
-        data: {'title':title},
+        data: { 'title': title },
         success: function (response) {
             alert('업데이트 완료')
-            window.location.href = '/'
+            window.location.reload();
         }
     })
 }
@@ -104,7 +105,7 @@ function delete_gallery1(article_id) {
         data: {},
         success: function (response) {
             alert('삭제 완료')
-            window.location.href = '/'
+            window.location.reload();
         }
     })
 }
