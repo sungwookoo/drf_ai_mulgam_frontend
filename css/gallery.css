@@ -363,6 +363,9 @@
     justify-content: flex-start;
 }
 
+.hide{
+    display: none;
+}
 .nextmodal {
     display: none
 }
