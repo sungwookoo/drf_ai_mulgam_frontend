@@ -18,7 +18,6 @@ function get_gallery2() {
                 let img_url = response[i]['img_url']
                 let user = response[i]['user']
                 let article_id = response[i]['id']
-                console.log(user)
                 let temp_g2;
                 if (localStorage.getItem("payload") != null) {
                     if ((user_id == user)) {
@@ -57,11 +56,8 @@ function get_gallery2() {
                     <div class="feed_title">${title}</div>
                     <div class="button_box"></div>
                     </div>`
-
                 }
                 $('#gallery2_painting').append(temp_g2);
-
-
 
                 let modal_g2 = `<div class="modal fade" id="editsaaaa${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
@@ -108,9 +104,6 @@ function post_gallery2() {
     const payload = JSON.parse(localStorage.getItem("payload"));
     let user_id = payload.user_id;
 
-    // &&, || 
-
-
     let form_data = new FormData()
 
     form_data.append("title", title)
@@ -153,7 +146,6 @@ function put_gallery2(article_id, i) {
 function delete_gallery2(article_id) {
     const payload = JSON.parse(localStorage.getItem("payload"));
     let user_id = payload.user_id;
-    console.log(user_id);
     $.ajax({
         type: "DELETE",
         url: "http://127.0.0.1:8000/article/gallery2/" + article_id,
