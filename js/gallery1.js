@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     get_gallery1();
 })

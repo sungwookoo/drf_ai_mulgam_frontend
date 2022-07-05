@@ -116,11 +116,9 @@ function post_gallery2() {
         cache: false,
         contentType: false,
         processData: false,
-        // beforeSend: function (xhr) {
-        //     xhr.setRequestHeader("Authorization", "Bearer " + token);
-        // },
-        headers: {
-            "Authorization": "Bearer " + token
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.setRequestHeader("Authorization", "Bearer " + token);
         },
         error: function () {
             alert("error")
