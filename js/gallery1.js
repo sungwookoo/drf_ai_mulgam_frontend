@@ -17,7 +17,7 @@ function get_gallery1() {
                 console.log(article_id)
                 let temp_g1 = `<div class="feed_box">
                 <a>
-                    <div class="feed"><img src="${img_url}" width="300" height="300"></div>
+                    <div class="feed"><img src="${img_url}" width="300" height="300" onclick="get_comment(${article_id},${img_url},${title})"></div>
                 </a>
                 <div class="feed_title">${title}</div>
                 <div class="button_box">
