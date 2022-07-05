@@ -5,6 +5,11 @@ $(document).ready(function () {
 })
 
 function get_gallery1() {
+    let user_id;
+    if (localStorage.getItem("payload") != null) {
+        const payload = JSON.parse(localStorage.getItem("payload"));
+        user_id = payload.user_id;
+    }
     $.ajax({
         type: "GET",
         url: "http://127.0.0.1:8000/article/gallery1/",
@@ -13,6 +18,7 @@ function get_gallery1() {
             for (let i = 0; i < response.length; i++) {
                 let title = response[i]['title']
                 let img_url = response[i]['img_url']
+                let user = response[i]['user']
                 let article_id = response[i]['id']
                 console.log(article_id)
                 let temp_g1 = `<div class="feed_box">
@@ -20,14 +26,19 @@ function get_gallery1() {
                     <div class="feed"><img src="${img_url}" width="300" height="300"></div>
                 </a>
                 <div class="feed_title">${title}</div>
-                <div class="button_box">
-                    <a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
-                            class="put_button">edit</button></a>
-                    <a><button class="delete_button" onclick="delete_gallery1(${article_id})">delete</button></a>
+                <div class="button_box" id="button_boxs${i}>
+                    
                 </div>
                 </div>`
                 $('#gallery1_painting').append(temp_g1);
-
+                let temp_button = `<a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
+                class="put_button">edit</button></a>
+        <a><button class="delete_button" onclick="delete_gallery1(${article_id})">delete</button></a>`
+                if (localStorage.getItem("payload") != null) {
+                    if ((user_id == user)) {
+                        $('#button_boxs' + i).append(temp_button);
+                    }
+                }
 
                 let modal_g1 = `<div class="modal fade" id="edit${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
@@ -57,6 +68,8 @@ function get_gallery1() {
 }
 
 function post_gallery1() {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    let user_id = payload.user_id;
     let title = $('#title').val()
     let num = $('#num').val()
     let file = $('#file')[0].files[0]
@@ -65,6 +78,7 @@ function post_gallery1() {
     form_data.append("title", title)
     form_data.append("num", num)
     form_data.append("file", file)
+    form_data.append("user", user_id)
 
     $.ajax({
         type: "POST",
@@ -74,7 +88,7 @@ function post_gallery1() {
         contentType: false,
         processData: false,
         error: function () {
-            alert("작품이 게시되었습니다.")
+            alert("error")
             window.location.reload();
         },
         success: function () {
