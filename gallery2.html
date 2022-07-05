@@ -198,7 +198,7 @@
             </div>
         </div>
     </div>
-    <div id="editmodal1">
+    <div id="editsmodal">
 
     </div>
 
@@ -211,7 +211,9 @@
             <p class="mt-3 text-muted">© team 5. WCD </p>
         </main>
     </div>
-
+    <button class="nextmodal" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+        로딩중
+    </button>
     <!-- 푸터 -->
     <div class="copyright py-4 text-center text-white" style="background-image: url('https://mblogthumb-phinf.pstatic.net/MjAyMDA0MTdfNTMg/MDAxNTg3MTA4MDcyNzI3.NjLRceftGnwms0yzBh2hN-RaOL-goS5zj8zOFusoSEAg.LSXqKH2BvMM87WO2m8Vh0IelgKOvrq9GDj4R5n3v0IIg.JPEG.youli9988/IMG_4433.JPG?type=w800');
         background-size: cover;
@@ -220,6 +222,28 @@
         <div class="container"><small>WECD &copy; MULGAM 2022</small></div>
     </div>
 
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="height:350px; max-width: none; width:300px">
+            <div class="modal-content g2modal" style="height:100%">
+                <div class="modal-header">
+                    gallery 2
+                </div>
+                <div class="loading_modal">
+                    <br>
+                    로딩중 입니다.<br>
+                    닫기를 이용하여 갤러리를 구경할 수 있습니다.<br>
+                    로딩은 1분 정도 걸립니다.<br>
+                    <br>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="w-btn-outline w-btn-gray-outline" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <script>
         const reader = new FileReader();
 
