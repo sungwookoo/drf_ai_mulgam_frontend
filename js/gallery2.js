@@ -3,6 +3,11 @@ $(document).ready(function () {
 })
 
 function get_gallery2() {
+    let user_id;
+    if (localStorage.getItem("payload") != null) {
+        const payload = JSON.parse(localStorage.getItem("payload"));
+        user_id = payload.user_id;
+    }
     $.ajax({
         type: "GET",
         url: "http://127.0.0.1:8000/article/gallery2/",
@@ -11,20 +16,27 @@ function get_gallery2() {
             for (let i = 0; i < response.length; i++) {
                 let title = response[i]['title']
                 let img_url = response[i]['img_url']
+                let user = response[i]['user']
                 let article_id = response[i]['id']
+                console.log(user)
                 let temp_g2 = `<div class="feed_box">
                 <a>
                     <div class="feed"><img src="${img_url}" width="300" height="300"></div>
                 </a>
                 <div class="feed_title">${title}</div>
-                <div class="button_box">
-                    <a><button data-bs-toggle="modal" data-bs-target="#edits${i}"
-                            class="put_button">edit</button></a>
-                    <a><button class="delete_button" onclick="delete_gallery2(${article_id})">delete</button></a>
+                <div class="button_box" id="button_box${i}">
+                    
                 </div>
                 </div>`
                 $('#gallery2_painting').append(temp_g2);
-
+                let temp_button = `<a><button data-bs-toggle="modal" data-bs-target="#edits${i}"
+                class="put_button">edit</button></a>
+        <a><button class="delete_button" onclick="delete_gallery2(${article_id})">delete</button></a>`
+                if (localStorage.getItem("payload") != null) {
+                    if ((user_id == user)) {
+                        $('#button_box' + i).append(temp_button);
+                    }
+                }
 
                 let modal_g2 = `<div class="modal fade" id="edits${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
@@ -54,10 +66,11 @@ function get_gallery2() {
 }
 
 function post_gallery2() {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    let user_id = payload.user_id;
     let title = $('#title').val()
     let file1 = $('#file1')[0].files[0]
     let file2 = $('#file2')[0].files[0]
-
     // &&, || 
     if (file1 == undefined || file2 == undefined) {
         alert("파일을 두개 모두 선택해야합니다.");
@@ -69,6 +82,8 @@ function post_gallery2() {
     form_data.append("title", title)
     form_data.append("file1", file1)
     form_data.append("file2", file2)
+    form_data.append("file2", file2)
+    form_data.append("user", user_id)
 
     $.ajax({
         type: "POST",
@@ -103,6 +118,9 @@ function put_gallery2(article_id, i) {
 }
 
 function delete_gallery2(article_id) {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    let user_id = payload.user_id;
+    console.log(user_id);
     $.ajax({
         type: "DELETE",
         url: "http://127.0.0.1:8000/article/gallery2/" + article_id,
