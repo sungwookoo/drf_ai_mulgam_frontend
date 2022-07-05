@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     get_gallery1();
 })
@@ -20,8 +18,10 @@ function get_gallery1() {
                 let img_url = response[i]['img_url']
                 let user = response[i]['user']
                 let article_id = response[i]['id']
-                console.log(article_id)
-                let temp_g1 = `<div class="feed_box">
+                let temp_g1;
+                if (localStorage.getItem("payload") != null) {
+                    if ((user_id == user)) {
+                        temp_g1 = `<div class="feed_box">
                 <div class="feed">
                     <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
                         <img src="${img_url}"
@@ -29,17 +29,37 @@ function get_gallery1() {
                     </a>
                 </div>
                 <div class="feed_title">${title}</div>
-                <div class="button_box" id="button_boxs${i}></div>
-                </div>`
-                $('#gallery1_painting').append(temp_g1);
-                let temp_button = `<a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
+                <div class="button_box"><a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
                 class="put_button">edit</button></a>
-        <a><button class="delete_button" onclick="delete_gallery1(${article_id})">delete</button></a>`
-                if (localStorage.getItem("payload") != null) {
-                    if ((user_id == user)) {
-                        $('#button_boxs' + i).append(temp_button);
-                    }
+        <a><button class="delete_button" onclick="delete_gallery1(${article_id})">delete</button></a></div>
+                </div > `} else {
+                        temp_g1 = `<div class="feed_box">
+                <div class="feed">
+                    <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                        <img src="${img_url}"
+                            width="300" height="300" onclick="get_comment(${article_id},'${img_url}','${title}')">
+                    </a>
+                </div>
+                <div class="feed_title">${title}</div>
+                <div class="button_box"></div>
+                </div>`}
+
+                } else {
+                    temp_g1 = `<div class="feed_box">
+                    <div class="feed">
+                        <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                            <img src="${img_url}"
+                                width="300" height="300" onclick="get_comment(${article_id},'${img_url}','${title}')">
+                        </a>
+                    </div>
+                    <div class="feed_title">${title}</div>
+                    <div class="button_box"></div>
+                    </div>`
+
                 }
+                $('#gallery1_painting').append(temp_g1);
+
+
 
                 let modal_g1 = `<div class="modal fade" id="edit${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
@@ -69,8 +89,6 @@ function get_gallery1() {
 }
 
 function post_gallery1() {
-    const payload = JSON.parse(localStorage.getItem("payload"));
-    let user_id = payload.user_id;
     let title = $('#title').val()
     let num = $('#num').val()
     let file = $('#file')[0].files[0]
@@ -79,7 +97,6 @@ function post_gallery1() {
     form_data.append("title", title)
     form_data.append("num", num)
     form_data.append("file", file)
-    form_data.append("user", user_id)
 
     $.ajax({
         type: "POST",
@@ -88,6 +105,7 @@ function post_gallery1() {
         cache: false,
         contentType: false,
         processData: false,
+
         error: function () {
             alert("error")
             window.location.reload();
