@@ -152,34 +152,44 @@
     </div>
     <!--모달-->
 
+    <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal"> Do it!</button>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="height:635px; max-width: none; width:1000px">
+        <div class="modal-dialog" style="height:820px; max-width: none; width:1000px">
             <div class="modal-content g2modal" style="height:100%">
                 <div class="modal-header">
-                    gallery 2
+                    gallery 1
                 </div>
                 <div class="modal-body">
-                    <div>
-                        <img src="img/그림7.png" class="img_dicription">
+                    <div class="img-intro">
+                        <img src="img/그림1.png" class="img_dicription">
                     </div>
                     <hr>
                     <div class="file_upload">
-                        <input type="text" id="title" name="title" placeholder="제목">
+                        <div class="upload-box">
+                            <img class="img_section" src="img/.jpg" width="250" height="250" id="img_section">
+                            <div class="img-box">
+                                <img class="img_reader" src="img/model0.jpg" width="250" height="250" id="num0">
+                                <img class="img_reader" src="img/model1.jpg" width="250" height="250" id="num1">
+                                <img class="img_reader" src="img/model2.jpg" width="250" height="250" id="num2">
+                                <img class="img_reader" src="img/model3.jpg" width="250" height="250" id="num3">
+                                <img class="img_reader" src="img/model4.jpg" width="250" height="250" id="num4">
+                                <img class="img_reader" src="img/model5.jpg" width="250" height="250" id="num5">
+                                <img class="img_reader" src="img/model6.jpg" width="250" height="250" id="num6">
+                                <img class="img_reader" src="img/model7.jpg" width="250" height="250" id="num7">
+                                <img class="img_reader" src="img/model8.jpg" width="250" height="250" id="num8">
+                            </div>
+                        </div>
+                        <input class="upload-title" type="text" id="title" name="title" placeholder="제목을 입력해주세요">
+                        <input class="upload-title" type="text" id="num" name="num" placeholder="num">
                         <br>
-                        <input class="file_choice1" type="file" id="file1" name="file1"
+                        <input class="file_choice" type="file" id="file" name="file"
                             accept="image/jpeg, image/jpg, image/png" multiple>
-                        <img class="img_read1" src="img/그림5.png" id="img_section">
-                        <img class="img_read3" src="img/그림4.png" id="img_section">
-                        <input class="file_choice2" type="file" id="file2" name="file2"
-                            accept="image/jpeg, image/jpg, image/png" multiple>
-                        <img class="img_read2" src="img/그림6.png" id="img_section">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="w-btn-outline w-btn-blue-outline" data-bs-dismiss="modal"
-                        onclick="post_gallery1()">제출</button>
-                    <button type="button" class="w-btn-outline w-btn-gray-outline"
-                        data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="footer-submit" data-bs-dismiss="modal"
+                        onclick="post_gallery1()">Submit</button>
+                    <button type="button" class="footer-close" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -189,6 +199,7 @@
     <div id="editmodal">
 
     </div>
+
     <!-- <div class="modal fade" id="exampleModal_put" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
             <div class="modal-content g2modal" style="height:100%">
@@ -210,15 +221,78 @@
             </div>
         </div>
     </div>-->
+
     <script>
-        let post_button = `
-        <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            작품 게시
-        </button>`
-        if (localStorage.getItem("payload") != null) {
-            $('body').append(post_button);
-        }
+        const reader = new FileReader();
+
+        reader.onload = (readerEvent) => {
+            document.querySelector("#img_section").setAttribute("src", readerEvent.target.result);
+            //파일을 읽는 이벤트가 발생하면 img_section의 src 속성을 readerEvent의 결과물로 대체함
+        };
+
+        document.querySelector("#file").addEventListener("change", (changeEvent) => {
+            //upload_file 에 이벤트리스너를 장착
+
+            const imgFile = changeEvent.target.files[0];
+            reader.readAsDataURL(imgFile);
+            //업로드한 이미지의 URL을 reader에 등록
+        })
+
+
+
+        $(document).ready(function () {
+            $('#num0').click(function () {
+                $('input#num').val('0');
+            });
+        });
+        $(document).ready(function () {
+            $('#num1').click(function () {
+                $('input#num').val('1');
+            });
+        });
+        $(document).ready(function () {
+            $('#num2').click(function () {
+                $('input#num').val('2');
+            });
+        });
+        $(document).ready(function () {
+            $('#num3').click(function () {
+                $('input#num').val('3');
+            });
+        });
+        $(document).ready(function () {
+            $('#num4').click(function () {
+                $('input#num').val('4');
+            });
+        });
+        $(document).ready(function () {
+            $('#num5').click(function () {
+                $('input#num').val('5');
+            });
+        });
+        $(document).ready(function () {
+            $('#num6').click(function () {
+                $('input#num').val('6');
+            });
+        });
+        $(document).ready(function () {
+            $('#num7').click(function () {
+                $('input#num').val('7');
+            });
+        });
+        $(document).ready(function () {
+            $('#num8').click(function () {
+                $('input#num').val('8');
+            });
+        });
     </script>
+    <!-- 푸터 -->
+    <div class="copyright py-4 text-center text-white" style="background-image: url('https://mblogthumb-phinf.pstatic.net/MjAyMDA0MTdfNTMg/MDAxNTg3MTA4MDcyNzI3.NjLRceftGnwms0yzBh2hN-RaOL-goS5zj8zOFusoSEAg.LSXqKH2BvMM87WO2m8Vh0IelgKOvrq9GDj4R5n3v0IIg.JPEG.youli9988/IMG_4433.JPG?type=w800');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;">
+        <div class="container"><small>WECD &copy; MULGAM 2022</small></div>
+    </div>
 
     <!-- 디테일 모달 추가-->
     <div id="include_comment">
