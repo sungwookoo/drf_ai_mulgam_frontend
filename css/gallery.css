@@ -331,6 +331,9 @@
 
 
 /* 공통  */
+.hide{
+    display: none;
+}
 .nextmodal {
     display: none
 }
