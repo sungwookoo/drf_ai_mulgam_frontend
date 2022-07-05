@@ -60,6 +60,14 @@ window.onload = () => {
     }
 };
 
+function email_check(email) {
+
+    var reg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+    return reg.test(email);
+
+}
+
 async function handleSignup() {
 
     const signupData = {
@@ -70,6 +78,24 @@ async function handleSignup() {
     }
 
     console.log(signupData);
+    if ((signupData['username'] == '') || (signupData['username'].length < 4)) {
+        alert('username 형식이 잘못되었습니다. 4자 이상')
+        return false;
+    }
+    if ((signupData['email'] == '') || (!email_check(signupData['email']))) {
+        alert('이메일 형식이 잘못되었습니다.')
+        return false;
+    }
+
+
+    if ((signupData['password'] == '') || (signupData['password'].length < 8)) {
+        alert('비밀번호 형식이 잘못되었습니다.. 8자 이상')
+        return false;
+    }
+    if (signupData['fullname'] == '') {
+        alert('fullname 형식이 잘못되었습니다.')
+        return false;
+    }
 
 
     const response = await fetch(`${backend_base_url}/user/api/signup/`, {
