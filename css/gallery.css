@@ -329,11 +329,6 @@
     justify-content: flex-start;
 }
 
-
-/* 공통  */
-.hide{
-    display: none;
-}
 .nextmodal {
     display: none
 }
