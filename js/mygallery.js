@@ -12,7 +12,7 @@ function get_mygallery() {
     }
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:8000/article/mygallery/",
+        url: "http://13.209.41.201/article/mygallery/",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Content-type", "application/json");
             xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -37,7 +37,6 @@ function get_mygallery() {
                 </div>
                 </div>`} else { temp_myg = `<div> 1 </div>` }
                 } else { temp_myg = `<div> 2 </div>` }
-
                 $('#mygallery_painting').append(temp_myg);
             }
         }
@@ -47,7 +46,7 @@ function get_mygallery() {
 function delete_mygallery(article_id) {
     $.ajax({
         type: "DELETE",
-        url: "http://127.0.0.1:8000/article/mygallery/" + article_id,
+        url: "http://13.209.41.201/article/mygallery/" + article_id,
         data: {},
         success: function (response) {
             alert('삭제 완료')
