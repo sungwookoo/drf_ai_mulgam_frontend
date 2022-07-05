@@ -151,9 +151,7 @@
         </div>
     </div>
     <!--모달-->
-    <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        작품 게시
-    </button>
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="height:635px; max-width: none; width:1000px">
             <div class="modal-content g2modal" style="height:100%">
@@ -211,7 +209,16 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
+    <script>
+        let post_button = `
+        <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            작품 게시
+        </button>`
+        if (localStorage.getItem("payload") != null) {
+            $('body').append(post_button);
+        }
+    </script>
 
     <!-- 디테일 모달 추가-->
     <div id="include_comment">
@@ -220,19 +227,6 @@
 
             </form>
             <p class="mt-3 text-muted">© team 5. WCD </p>
-            <!-- <p class="new-mulgam">
-                    <div style="float: right" id="delete_box">
-                      <a href="/article/comment/delete/{{ cm.id }}">
-                        <span class="badge bg-danger" style="background-color: #FF4E10!important;">삭제</span>
-                      </a>
-                    </div>
-                    <div style="float: right; margin-right:5px;">
-                      <a href="/article/comment/edit/{{ cm.id }}">
-                        <span class="badge bg-danger" style="background-color: #00B4CC!important;">수정</span>
-                      </a>
-                    </div>
-                </p> -->
-
         </main>
     </div>
 
