@@ -30,7 +30,8 @@ function get_gallery2() {
                     </a>
                 </div>
                 <div class="feed_title">${title}</div>
-                <div class="button_box"><a><button data-bs-toggle="modal" data-bs-target="#edits${i}"
+                <div class="button_box">
+                <a><button data-bs-toggle="modal" data-bs-target="#editsaaaa${i}"
                 class="put_button">edit</button></a>
         <a><button class="delete_button" onclick="delete_gallery2(${article_id})">delete</button></a></div>
                 </div > `} else {
@@ -62,7 +63,7 @@ function get_gallery2() {
 
 
 
-                let modal_g2 = `<div class="modal fade" id="edits${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                let modal_g2 = `<div class="modal fade" id="editsaaaa${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="height:720px; max-width: none; width:1000px">
                     <div class="modal-content g2modal" style="height:100%">
                         <div class="modal-header">
@@ -92,12 +93,9 @@ function get_gallery2() {
 }
 
 function post_gallery2() {
-    const payload = JSON.parse(localStorage.getItem("payload"));
-    let user_id = payload.user_id;
     let title = $('#title').val()
     let file1 = $('#file1')[0].files[0]
     let file2 = $('#file2')[0].files[0]
-    // &&, || 
     if (file1 == undefined || file2 == undefined) {
         alert("파일을 두개 모두 선택해야합니다.");
         return false;
@@ -106,6 +104,12 @@ function post_gallery2() {
         alert("제목을 적어야합니다.");
         return false;
     }
+    $('.nextmodal').click();
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    let user_id = payload.user_id;
+
+    // &&, || 
+
 
     let form_data = new FormData()
 

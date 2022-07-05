@@ -1,6 +1,6 @@
-﻿backend_base_url = "http://3.34.48.116:8000/"
-// backend_base_url = "http://127.0.0.1:8000"
-// frontend_base_url = "http://127.0.0.1:5500"
+﻿// backend_base_url = "http://3.34.48.116:8000"
+backend_base_url = "http://127.0.0.1:8000"
+frontend_base_url = "http://127.0.0.1:5500"
 
 $(document).ready(function () {
 });
@@ -19,7 +19,6 @@ function getUserInfo(user_id) {
 
 window.onload = () => {
     const payload = JSON.parse(localStorage.getItem("payload"));
-    getUserInfo(payload.user_id)
 
     // 아직 access 토큰의 인가 유효시간이 남은 경우
     if (payload.exp > (Date.now() / 1000)) {

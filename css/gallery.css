@@ -268,27 +268,29 @@
     opacity: 0;
     z-index: 1;
 }
-.file_choice:hover{
+
+.file_choice:hover {
     cursor: pointer;
 }
 
-.img-box{
-    width:700px;
-    height:270px;
-    overflow-x:auto;
-    white-space:nowrap;
+.img-box {
+    width: 700px;
+    height: 270px;
+    overflow-x: auto;
+    white-space: nowrap;
     margin-left: 40px;
 }
 
-.img_reader{
+.img_reader {
     overflow: auto;
     white-space: nowrap;
 }
-.img_reader:hover{
+
+.img_reader:hover {
     cursor: pointer;
 }
 
-.footer-submit{
+.footer-submit {
     border: none;
     color: white;
     background-color: mediumaquamarine;
@@ -298,7 +300,7 @@
     font-size: 10px;
 }
 
-.footer-close{
+.footer-close {
     border: none;
     color: white;
     background-color: brown;
@@ -309,25 +311,32 @@
 }
 
 
-.file_upload{
+.file_upload {}
 
-}
-
-.upload-box{
+.upload-box {
     width: 900px;
     margin: auto;
     display: flex;
-    
+
 }
 
-.upload-title{
+.upload-title {
     margin: 10px 0 0 30px;
     width: 255px;
 }
 
-.img_section{
+.img_section {
     justify-content: flex-start;
 }
 
 
 /* 공통  */
+.nextmodal {
+    display: none
+}
+
+.loading_modal {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+}

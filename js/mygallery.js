@@ -4,6 +4,7 @@ $(document).ready(function () {
 })
 
 function get_mygallery() {
+    var token = localStorage.getItem("access_token")
     let user_id;
     if (localStorage.getItem("payload") != null) {
         const payload = JSON.parse(localStorage.getItem("payload"));
@@ -12,7 +13,11 @@ function get_mygallery() {
     $.ajax({
         type: "GET",
         url: "http://127.0.0.1:8000/article/mygallery/",
-        data: {'user':user_id},
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.setRequestHeader("Authorization", "Bearer " + token);
+          },
+        data: {},
         success: function (response) {
             console.log(response)
             for (let i = 0; i < response.length; i++) {
