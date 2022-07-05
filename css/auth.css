@@ -3,6 +3,7 @@
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  font-size : 1.25em;
 }
 
 .form-signup .checkbox {
@@ -54,4 +55,8 @@
 .text-muted {
   font-size: 12px;
   text-align: center;
+}
+
+.input-signup {
+  
 }
