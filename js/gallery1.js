@@ -10,7 +10,7 @@ function get_gallery1() {
     }
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:8000/article/gallery1/",
+        url: "http://13.209.41.201/article/gallery1/",
         data: {},
         success: function (response) {
             for (let i = 0; i < response.length; i++) {
@@ -104,7 +104,7 @@ function post_gallery1() {
     
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:8000/article/gallery1/",
+        url: "http://13.209.41.201/article/gallery1/",
         data: form_data,
         cache: false,
         contentType: false,
@@ -126,7 +126,7 @@ function put_gallery1(article_id, i) {
     let title = $('#edittitle' + i).val()
     $.ajax({
         type: "PUT",
-        url: "http://127.0.0.1:8000/article/gallery1/" + article_id,
+        url: "http://13.209.41.201/article/gallery1/" + article_id,
         data: { 'title': title },
         success: function (response) {
             alert('업데이트 완료')
@@ -138,7 +138,7 @@ function put_gallery1(article_id, i) {
 function delete_gallery1(article_id) {
     $.ajax({
         type: "DELETE",
-        url: "http://127.0.0.1:8000/article/gallery1/" + article_id,
+        url: "http://13.209.41.201/article/gallery1/" + article_id,
         data: {},
         success: function (response) {
             alert('삭제 완료')
