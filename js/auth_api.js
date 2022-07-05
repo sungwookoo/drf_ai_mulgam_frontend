@@ -1,6 +1,6 @@
-﻿// const backend_base_url = "http://3.34.48.116:8000/"
-backend_base_url = "http://127.0.0.1:8000"
-frontend_base_url = "http://127.0.0.1:5500"
+﻿backend_base_url = "http://3.34.48.116:8000/"
+// backend_base_url = "http://127.0.0.1:8000"
+// frontend_base_url = "http://127.0.0.1:5500"
 
 $(document).ready(function () {
 });
