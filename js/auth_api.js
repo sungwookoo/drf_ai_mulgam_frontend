@@ -1,5 +1,5 @@
-﻿backend_base_url = "http://13.209.41.201/"
-frontend_base_url = "https://mulgam.netlify.app/"
+﻿backend_base_url = "http://13.209.41.201"
+frontend_base_url = "https://mulgam.netlify.app"
 // backend_base_url = "http://127.0.0.1:8000"
 
 
