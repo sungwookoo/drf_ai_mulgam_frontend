@@ -20,6 +20,8 @@
     <script src="/js/nav.js"></script>
     <script src="/js/auth_api.js"></script>
     <script src="/js/common.js"></script>
+    <script src="js/comment.js"> </script>
+
     <link rel="stylesheet" href="/css/auth.css" />
     <link rel="stylesheet" href="/css/nav.css" />
 </head>
@@ -93,9 +95,12 @@
                     </div>
                 </div>
                 <div class="feed_box">
-                    <div class="feed"><img
-                            src="https://freight.cargo.site/w/200/q/94/i/0000080x0160be4.fc56833ab6f09db2189fd684525b4f1748e061a03b0bbc1c23e22ec265d8358d/prt_1305406940.jpg"
-                            width="300" height="300"></div>
+                    <div class="feed">
+                        <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                            <img src="https://freight.cargo.site/w/200/q/94/i/0000080x0160be4.fc56833ab6f09db2189fd684525b4f1748e061a03b0bbc1c23e22ec265d8358d/prt_1305406940.jpg"
+                                width="300" height="300" onclick="get_comment(2,'img','hello world')">
+                        </a>
+                    </div>
                     <div class="feed_title">hello world</div>
                     <div class="button_box">
                         <a><button class="put_button">edit</button></a>
@@ -204,7 +209,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <script>
         let post_button = `
         <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -214,6 +219,17 @@
             $('body').append(post_button);
         }
     </script>
+
+    <!-- 디테일 모달 추가-->
+    <div id="include_comment">
+        <main class="form-comment">
+            <form id="detail-box">
+
+            </form>
+            <p class="mt-3 text-muted">© team 5. WCD </p>
+        </main>
+    </div>
+
 </body>
 
 </html>
