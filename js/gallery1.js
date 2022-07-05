@@ -29,7 +29,8 @@ function get_gallery1() {
                     </a>
                 </div>
                 <div class="feed_title">${title}</div>
-                <div class="button_box"><a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
+                <div class="button_box">
+                <a><button data-bs-toggle="modal" data-bs-target="#edit${i}"
                 class="put_button">edit</button></a>
         <a><button class="delete_button" onclick="delete_gallery1(${article_id})">delete</button></a></div>
                 </div > `} else {
