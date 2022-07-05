@@ -89,12 +89,11 @@ function post_gallery2() {
         type: "POST",
         url: "http://127.0.0.1:8000/article/gallery2/",
         data: form_data,
-        dataType: "json",
         cache: false,
         contentType: false,
         processData: false,
         error: function () {
-            alert("작품이 게시되었습니다.")
+            alert("error")
             window.location.reload();
         },
         success: function () {

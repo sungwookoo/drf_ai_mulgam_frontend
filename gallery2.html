@@ -154,9 +154,7 @@
             </div>
         </div>
     </div>
-    <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-        작품 게시
-    </button>
+
     <!--모달-->
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="height:635px; max-width: none; width:1000px">
@@ -232,6 +230,13 @@
             reader1.readAsDataURL(imgFile);
             //업로드한 이미지의 URL을 reader에 등록
         })
+        let post_button = `
+        <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            작품 게시
+        </button>`
+        if (localStorage.getItem("payload") != null) {
+            $('body').append(post_button);
+        }
     </script>
 </body>
 
