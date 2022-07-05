@@ -4,23 +4,36 @@ $(document).ready(function () {
 })
 
 function get_mygallery() {
+    let user_id;
+    if (localStorage.getItem("payload") != null) {
+        const payload = JSON.parse(localStorage.getItem("payload"));
+        user_id = payload.user_id;
+    }
     $.ajax({
         type: "GET",
         url: "http://127.0.0.1:8000/article/mygallery/",
-        data: {},
+        data: {'user':user_id},
         success: function (response) {
+            console.log(response)
             for (let i = 0; i < response.length; i++) {
                 let title = response[i]['title']
-                console.log(2)
                 let img_url = response[i]['img_url']
+                let user = response[i]['user']
                 let article_id = response[i]['id']
-                let temp_myg = `<div class="feed_box">
-                <a><div class="feed"><img src="${img_url}" width="300" height="300"></div></a>
+                if (localStorage.getItem("payload") != null) {
+                    if ((user_id == user)) {
+                        temp_myg = `<div class="feed_box">
+                    <div class="feed">
+                    <img src="${img_url}" width="300" height="300" onclick="get_comment(${article_id},${img_url},${title})">
+                    </div>
                 <div class="feed_title">${title}</div>
                 <div class="button_box">
                     <a><button class="delete_button" onclick="delete_mygallery(${article_id})">delete</button></a>
                 </div>
-            </div>`
+                </div>
+                </div>`} else { temp_myg = `<div> 1 </div>` }
+                } else { temp_myg = `<div> 2 </div>` }
+
                 $('#mygallery_painting').append(temp_myg);
             }
         }
