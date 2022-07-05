@@ -362,3 +362,7 @@
 .img_section{
     justify-content: flex-start;
 }
+
+.hide{
+    visibility: hidden;
+}
