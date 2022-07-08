@@ -34,13 +34,13 @@
         <nav id="navigationBar">
             <ul>
                 <li>
-                    <a href="/home" class="link">About</a>
+                    <a href="/home.html" class="link">About</a>
                 </li>
                 <li>
-                    <a href="/gallery1" class="link">Gallery 1</a>
+                    <a href="/gallery1.html" class="link">Gallery 1</a>
                 </li>
                 <li>
-                    <a href="/gallery2" class="link">Gallery 2</a>
+                    <a href="/gallery2.html" class="link">Gallery 2</a>
                 </li>
                 <li>
                     <a id="a_logout" style="float:right;margin-right:15px;" onclick="handleLogout()">
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a id="a_mypage" style="float:right;" href="" class="link">
+                    <a id="a_mypage" style="float:right;" href="/mygallery.html" class="link">
                     </a>
                 </li>
                 <li>
@@ -89,7 +89,7 @@
     <div class="main_container">
         <div class="main_box">
             <div id="gallery2_painting" class="floor">
-            <!--자바스크립트-->
+                <!--자바스크립트-->
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="w-btn-outline w-btn-blue-outline" data-bs-dismiss="modal"
-                        onclick="post_gallery2()">제출</button>
+                        onclick="post_gallery2()">submit</button>
                     <button type="button" class="w-btn-outline w-btn-gray-outline"
                         data-bs-dismiss="modal">Close</button>
                 </div>
@@ -143,6 +143,12 @@
     <button class="nextmodal" data-bs-toggle="modal" data-bs-target="#exampleModal3">
         로딩중
     </button>
+
+    <!-- 댓글 수정 모달 추가-->
+    <div id="include_edit">
+        <!-- <main class="form-comment"> <form id="edit-box"> </form> <p class="mt-3 text-muted">© team 5. WCD </p> </main> -->
+    </div>
+    
     <!-- 푸터 -->
     <div class="copyright py-4 text-center text-white" style="background-image: url('https://mblogthumb-phinf.pstatic.net/MjAyMDA0MTdfNTMg/MDAxNTg3MTA4MDcyNzI3.NjLRceftGnwms0yzBh2hN-RaOL-goS5zj8zOFusoSEAg.LSXqKH2BvMM87WO2m8Vh0IelgKOvrq9GDj4R5n3v0IIg.JPEG.youli9988/IMG_4433.JPG?type=w800');
         background-size: cover;
@@ -205,7 +211,7 @@
         })
         let post_button = `
         <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-            작품 게시
+            Do it!
         </button>`
         if (localStorage.getItem("payload") != null) {
             $('body').append(post_button);

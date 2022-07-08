@@ -31,13 +31,13 @@
         <nav id="navigationBar">
             <ul>
                 <li>
-                    <a href="/home" class="link">About</a>
+                    <a href="/home.html" class="link">About</a>
                 </li>
                 <li>
-                    <a href="/gallery1" class="link">Gallery 1</a>
+                    <a href="/gallery1.html" class="link">Gallery 1</a>
                 </li>
                 <li>
-                    <a href="/gallery2" class="link">Gallery 2</a>
+                    <a href="/gallery2.html" class="link">Gallery 2</a>
                 </li>
                 <li>
                     <a id="a_logout" style="float:right;margin-right:15px;" onclick="handleLogout()">
@@ -45,8 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a id="a_mypage" style="float:right;" href="/mygallery" class="link">
-                        Mypage
+                    <a id="a_mypage" style="float:right;" href="/mygallery.html" class="link">
                     </a>
                 </li>
                 <li>
@@ -206,7 +205,7 @@
 
         let post_button = `
         <button class="float" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            작품
+            Do it!
         </button>`
         if (localStorage.getItem("payload") != null) {
             $('body').append(post_button);
@@ -230,16 +229,11 @@
         </main>
     </div>
 
+
     <!-- 댓글 수정 모달 추가-->
     <div id="include_edit">
-        <main class="form-comment">
-            <form id="edit-box">
-
-            </form>
-            <p class="mt-3 text-muted">© team 5. WCD </p>
-        </main>
+        <!-- <main class="form-comment"> <form id="edit-box"> </form> <p class="mt-3 text-muted">© team 5. WCD </p> </main> -->
     </div>
-
 </body>
 
 </html>

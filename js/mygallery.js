@@ -1,8 +1,6 @@
 $(document).ready(function () {
     get_mygallery();
-
 })
-
 function get_mygallery() {
     var token = localStorage.getItem("access_token")
     let user_id;
@@ -12,7 +10,7 @@ function get_mygallery() {
     }
     $.ajax({
         type: "GET",
-        url: "http://13.209.41.201/article/mygallery/",
+        url: "http://127.0.0.1:8000/article/mygallery/",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Content-type", "application/json");
             xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -28,7 +26,8 @@ function get_mygallery() {
                     if ((user_id == user)) {
                         temp_myg = `<div class="feed_box">
                     <div class="feed">
-                    <img src="${img_url}" width="300" height="300" onclick="get_comment(${article_id},${img_url},${title})">
+                        <a style="float:right" class="nav-comment" data-bs-toggle="modal" data-bs-target="#detailModal">
+                        <img src="${img_url}" width="300" height="300" onclick="get_comment(${article_id},'${img_url}','${title}')">
                     </div>
                 <div class="feed_title">${title}</div>
                 <div class="button_box">
@@ -42,11 +41,10 @@ function get_mygallery() {
         }
     })
 }
-
 function delete_mygallery(article_id) {
     $.ajax({
         type: "DELETE",
-        url: "http://13.209.41.201/article/mygallery/" + article_id,
+        url: "http://127.0.0.1:8000/article/mygallery/" + article_id,
         data: {},
         success: function (response) {
             alert('삭제 완료')
